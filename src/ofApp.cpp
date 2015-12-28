@@ -8,17 +8,17 @@ void ofApp::setup(){
 	inputImg = cv::Mat(ofGetScreenHeight(), ofGetScreenWidth(), CV_8UC4);
 	correctedColorImg = cv::Mat(ofGetScreenHeight(), ofGetScreenWidth(), CV_8UC4);
 	p.allocate(ofGetScreenWidth(), ofGetScreenHeight(), ofImageType::OF_IMAGE_COLOR_ALPHA);
-	
+	testure.allocate(ofGetScreenWidth(), ofGetScreenHeight(), GL_BGRA);
 	
 	ofEnableAlphaBlending();
 	ofBackground(0, 0, 0, 255);
 
 	ofSetVerticalSync(true);							// lock to monitor
-	//ofEnableNormalizedTexCoords();						// explicitly normalize tex coords for ofBox
+	//ofEnableNormalizedTexCoords();					// explicitly normalize tex coords for ofBox
 
 	bInitialized = false;							// Spout sender initialization
 
-
+	
 	strcpy_s(sendername, "ScreenShare");			// Set the sender name
 	ofSetWindowTitle(sendername);						// show it on the title bar
 	//ofSetWindowShape(g_Width, g_Height);				// Set the window size
@@ -52,8 +52,8 @@ void ofApp::draw(){
 	}
 
 
-	p.draw(0, 0);
-
+	//p.draw(0, 0);
+	testure.draw(0, 0);
 
 
 	if (bInitialized) {
@@ -163,10 +163,18 @@ void ofApp::capture_screen()
 
 		GetBitmapBits(hBitmap, ofGetScreenHeight()*ofGetScreenWidth() * 4, inputImg.data);
 
-		cv::cvtColor(inputImg, correctedColorImg, CV_BGR2RGBA);
-		 
-		ofxCv::toOf(correctedColorImg, p);
-		p.update();
+		//cv::cvtColor(inputImg, correctedColorImg, CV_BGR2RGBA);		 
+		//ofxCv::toOf(correctedColorImg, p);
+		//p.update();
+
+		
+		//Using the code from ofxCv::copy(inputImg, testure); below...
+		//imitate(testure, inputImg);
+		//int w = testure.getWidth(), h = testure.getHeight();
+		//int glType = testure.getTextureData().glInternalFormat;
+		//Mat mat = toCv(inputImg);
+		//All I need is this line below..This way I don't have to do a conversion from BGRA to RGBA. 
+		testure.loadData(inputImg.ptr(), testure.getWidth(), testure.getHeight(), GL_BGRA);
 
 		DeleteObject(hBitmap);
 	}

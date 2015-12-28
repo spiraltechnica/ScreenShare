@@ -31,7 +31,7 @@ class ofApp : public ofBaseApp{
 		void capture_screen2();
 		void capture_screen3();
 
-
+	
 		cv::Mat inputImg,correctedColorImg;
 		ofImage p;
 
@@ -47,6 +47,9 @@ class ofApp : public ofBaseApp{
 		bool bMemoryShare;				// Texture share compatibility
 		ofImage myTextureImage;			// Texture image for the 3D demo
 		unsigned int g_Width, g_Height;	// Global width and height
+
+
+		ofTexture testure;
 
 		
 };
