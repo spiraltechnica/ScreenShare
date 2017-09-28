@@ -1,6 +1,8 @@
 # ScreenShare
-Share your screen as a texture via the Spout texture sharing framework. 
+Share your desktop to Spout
+![ScreenShare](https://raw.githubusercontent.com/spiraltechnica/ScreenShare/master/Images/ScreenShare.png)
 
-This OpenFrameworks application uses the Spout texture sharing framework and windows GDI+ api calls to capture your computer screen and shares it via Spout. Any receiving Spout enabled application can take this shared screen and do what they wish with it.
+ScreenShare allows you to quickly and easily share your primary desktop to the windows GPU texture sharing service, Spout. It uses GDI+ api calls, copies from CPU to GPU and then shares it to any Spout receivers.
 
-This initial release is just designed as the proof of concept. New features are on the drawing board, including the ability to select a portion of the screen to share and the ability to use different capture screen capture techniques (for speed).
+## Building
+This is built against OpenFrameworks 0.9.8 stable and Spout 2.006 http://spout.zeal.co/ on Visual Studio 2015, Windows 10 64bit
