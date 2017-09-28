@@ -3,7 +3,7 @@
 #include "ofMain.h"
 #include "ofxOpenCv.h"
 #include "ofxCv.h"
-#include "..\..\..\SpoutSDK\Spout.h"
+#include "..\..\..\SpoutSDK\Source\Spout.h"
 
 using namespace cv;
 using namespace ofxCv;
@@ -28,13 +28,6 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		void capture_screen();
-		void capture_screen2();
-		void capture_screen3();
-
-	
-		cv::Mat inputImg,correctedColorImg;
-		ofImage p;
-
 
 		void exit();
 
@@ -45,11 +38,24 @@ class ofApp : public ofBaseApp{
 		GLuint sendertexture;			// Local OpenGL texture used for sharing
 		bool bInitialized;				// Initialization result
 		bool bMemoryShare;				// Texture share compatibility
-		ofImage myTextureImage;			// Texture image for the 3D demo
 		unsigned int g_Width, g_Height;	// Global width and height
 
 
-		ofTexture testure;
+		ofTexture capturedTexture;
 
+		int capture_src_width;
+		int capture_src_height;
+		int capture_dst_width;
+		int capture_dst_height;
+		HDC hSourceDC;
+		HDC hCaptureDC;
+		HBITMAP hCaptureBitmap;
+		HWND window_handle;
+		BITMAPINFO bmi = { 0 };
+
+		unsigned char* capturedPixelData;
+
+		ofFbo fbo;
+		
 		
 };

@@ -28,12 +28,6 @@
     <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.cpp">
       <Filter>addons\ofxOpenCv\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxCv\libs\CLD\src\ETF.cpp">
-      <Filter>addons\ofxCV\libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxCv\libs\CLD\src\fdog.cpp">
-      <Filter>addons\ofxCV\libs</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Calibration.cpp">
       <Filter>addons\ofxCV\libs</Filter>
     </ClCompile>
@@ -67,32 +61,44 @@
     <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Wrappers.cpp">
       <Filter>addons\ofxCV\libs</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\SpoutSDK\SpoutDirectX.cpp">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClCompile Include="..\..\SpoutSDK\Source\SpoutCopy.cpp">
+      <Filter>addons\SpoutSDK\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\SpoutSDK\SpoutGLDXinterop.cpp">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClCompile Include="..\..\SpoutSDK\Source\SpoutDirectX.cpp">
+      <Filter>addons\SpoutSDK\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\SpoutSDK\SpoutGLextensions.cpp">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClCompile Include="..\..\SpoutSDK\Source\SpoutGLDXinterop.cpp">
+      <Filter>addons\SpoutSDK\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\SpoutSDK\SpoutMemoryShare.cpp">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClCompile Include="..\..\SpoutSDK\Source\SpoutGLextensions.cpp">
+      <Filter>addons\SpoutSDK\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\SpoutSDK\SpoutReceiver.cpp">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClCompile Include="..\..\SpoutSDK\Source\SpoutMemoryShare.cpp">
+      <Filter>addons\SpoutSDK\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\SpoutSDK\SpoutSDK.cpp">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClCompile Include="..\..\SpoutSDK\Source\SpoutReceiver.cpp">
+      <Filter>addons\SpoutSDK\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\SpoutSDK\SpoutSender.cpp">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClCompile Include="..\..\SpoutSDK\Source\SpoutSDK.cpp">
+      <Filter>addons\SpoutSDK\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\SpoutSDK\SpoutSenderNames.cpp">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClCompile Include="..\..\SpoutSDK\Source\SpoutSender.cpp">
+      <Filter>addons\SpoutSDK\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\SpoutSDK\SpoutSharedMemory.cpp">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClCompile Include="..\..\SpoutSDK\Source\SpoutSenderMemory.cpp">
+      <Filter>addons\SpoutSDK\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SpoutSDK\Source\SpoutSenderNames.cpp">
+      <Filter>addons\SpoutSDK\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SpoutSDK\Source\SpoutSharedMemory.cpp">
+      <Filter>addons\SpoutSDK\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\CLD\src\ETF.cpp">
+      <Filter>addons\ofxCV\libs\CLD\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\CLD\src\fdog.cpp">
+      <Filter>addons\ofxCV\libs\CLD\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -197,6 +203,21 @@
     </Filter>
     <Filter Include="addons\SpoutSDK">
       <UniqueIdentifier>{8d58147a-7087-40f6-ba08-7be56cd214e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\SpoutSDK\Source">
+      <UniqueIdentifier>{4cfef3de-b0b7-48ab-abd9-c5733d9d5b1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCV\libs\CLD">
+      <UniqueIdentifier>{98d2e161-34fb-4d17-9f65-af2f273c9598}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCV\libs\CLD\include">
+      <UniqueIdentifier>{18843ef4-d21f-4626-b012-305e6a08f433}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCV\libs\CLD\include\CLD">
+      <UniqueIdentifier>{797c31bc-18aa-4cc8-a56b-b7bdc178feec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCV\libs\CLD\src">
+      <UniqueIdentifier>{2184225b-97e4-4d3a-887f-00a1032de746}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -713,18 +734,6 @@
     <ClInclude Include="..\..\..\addons\ofxCv\src\ofxCv.h">
       <Filter>addons\ofxCV\src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\ETF.h">
-      <Filter>addons\ofxCV\libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\fdog.h">
-      <Filter>addons\ofxCV\libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\imatrix.h">
-      <Filter>addons\ofxCV\libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\myvec.h">
-      <Filter>addons\ofxCV\libs</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Calibration.h">
       <Filter>addons\ofxCV\libs</Filter>
     </ClInclude>
@@ -758,38 +767,56 @@
     <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Wrappers.h">
       <Filter>addons\ofxCV\libs</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\SpoutSDK\Spout.h">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClInclude Include="..\..\SpoutSDK\Source\Spout.h">
+      <Filter>addons\SpoutSDK\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\SpoutSDK\SpoutCommon.h">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClInclude Include="..\..\SpoutSDK\Source\SpoutCommon.h">
+      <Filter>addons\SpoutSDK\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\SpoutSDK\SpoutDirectX.h">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClInclude Include="..\..\SpoutSDK\Source\SpoutCopy.h">
+      <Filter>addons\SpoutSDK\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\SpoutSDK\SpoutGLDXinterop.h">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClInclude Include="..\..\SpoutSDK\Source\SpoutDirectX.h">
+      <Filter>addons\SpoutSDK\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\SpoutSDK\SpoutGLextensions.h">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClInclude Include="..\..\SpoutSDK\Source\SpoutGLDXinterop.h">
+      <Filter>addons\SpoutSDK\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\SpoutSDK\SpoutMemoryShare.h">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClInclude Include="..\..\SpoutSDK\Source\SpoutGLextensions.h">
+      <Filter>addons\SpoutSDK\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\SpoutSDK\SpoutReceiver.h">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClInclude Include="..\..\SpoutSDK\Source\SpoutMemoryShare.h">
+      <Filter>addons\SpoutSDK\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\SpoutSDK\SpoutSDK.h">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClInclude Include="..\..\SpoutSDK\Source\SpoutReceiver.h">
+      <Filter>addons\SpoutSDK\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\SpoutSDK\SpoutSender.h">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClInclude Include="..\..\SpoutSDK\Source\SpoutSDK.h">
+      <Filter>addons\SpoutSDK\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\SpoutSDK\SpoutSenderNames.h">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClInclude Include="..\..\SpoutSDK\Source\SpoutSender.h">
+      <Filter>addons\SpoutSDK\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\SpoutSDK\SpoutSharedMemory.h">
-      <Filter>addons\SpoutSDK</Filter>
+    <ClInclude Include="..\..\SpoutSDK\Source\SpoutSenderMemory.h">
+      <Filter>addons\SpoutSDK\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SpoutSDK\Source\SpoutSenderNames.h">
+      <Filter>addons\SpoutSDK\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SpoutSDK\Source\SpoutSharedMemory.h">
+      <Filter>addons\SpoutSDK\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\ETF.h">
+      <Filter>addons\ofxCV\libs\CLD\include\CLD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\fdog.h">
+      <Filter>addons\ofxCV\libs\CLD\include\CLD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\imatrix.h">
+      <Filter>addons\ofxCV\libs\CLD\include\CLD</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\myvec.h">
+      <Filter>addons\ofxCV\libs\CLD\include\CLD</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -799,5 +826,10 @@
     <None Include="..\..\..\addons\ofxCv\libs\.gitignore">
       <Filter>addons\ofxCV\libs</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\SpoutSDK\Source\SpoutDirectX.ico">
+      <Filter>addons\SpoutSDK\Source</Filter>
+    </Image>
   </ItemGroup>
 </Project>
