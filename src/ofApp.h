@@ -56,6 +56,8 @@ class ofApp : public ofBaseApp{
 		unsigned char* capturedPixelData;
 
 		ofFbo fbo;
+
+		int counter;
 		
 		
 };

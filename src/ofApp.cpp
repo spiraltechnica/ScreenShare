@@ -6,13 +6,19 @@ using namespace ofxCv;
 //--------------------------------------------------------------
 void ofApp::setup(){
 
-	capture_src_width = ofGetScreenWidth();
+	/*capture_src_width = ofGetScreenWidth();
 	capture_src_height = ofGetScreenHeight();
 	capture_dst_width = ofGetScreenWidth(); 
-	capture_dst_height = ofGetScreenHeight();
+	capture_dst_height = ofGetScreenHeight();*/
+
+	hSourceDC = GetDC(NULL);//GetDC( NULL ); for entire desktop	
+	capture_src_width = GetDeviceCaps(hSourceDC, HORZRES);
+	capture_src_height = GetDeviceCaps(hSourceDC, VERTRES);
+	capture_dst_width = GetDeviceCaps(hSourceDC, HORZRES);
+	capture_dst_height = GetDeviceCaps(hSourceDC, VERTRES);
 
 
-	fbo.allocate(ofGetScreenWidth(), ofGetScreenHeight(), GL_RGBA);
+	fbo.allocate(capture_dst_width, capture_dst_height, GL_RGBA);
 
 	capturedPixelData = new unsigned char[capture_dst_width * capture_dst_height * 3];
 	capturedTexture.allocate(capture_dst_width, capture_dst_height, GL_RGB);
@@ -50,6 +56,7 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 	capture_screen();
+	
 }
 
 //--------------------------------------------------------------
@@ -64,8 +71,6 @@ void ofApp::draw(){
 		bMemoryShare = spoutsender->GetMemoryShareMode();
 	}
 
-
-
 	if (bInitialized) {
 
 		// Draw the captured desktop into fbo, then bind the sendertexture to the fbo, and copy the contents of the fbo into the sendertexture		
@@ -77,13 +82,12 @@ void ofApp::draw(){
 		fbo.end();
 
 		//fit fbo to window bounds and position in middle
-		if (ofGetWindowWidth() / ofGetWindowHeight() <= 1280.0f / 720.0f) {
+		if (ofGetWindowWidth() > 0 && ofGetWindowHeight() > 0 && (ofGetWindowWidth() / ofGetWindowHeight() <= 1280.0f / 720.0f)) {
 			fbo.draw(0, (ofGetWindowHeight() / 2) - (ofGetWindowWidth()/1.77778) / 2, ofGetWindowWidth(), ofGetWindowWidth() / 1.77778);
 		}
 		else {
 			fbo.draw((ofGetWindowWidth()/2)-(ofGetWindowHeight()*1.77778)/2, 0, ofGetWindowHeight()*1.77778, ofGetWindowHeight());
-		}
-		
+		}		
 	
 		//
 		// Send the texture out for all receivers to use
@@ -97,19 +101,36 @@ void ofApp::draw(){
 		//		to disable this default then the result comes out apparently inverted.
 		//
 		spoutsender->SendTexture(sendertexture, GL_TEXTURE_2D, capture_dst_width, capture_dst_height, false, fbo.getId());
-
 		
 	}
+
+
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+	if (key == OF_KEY_LEFT) {
+
+		ofSetWindowPosition(ofGetWindowPositionX() - 1, ofGetWindowPositionY());
+	}
+	if (key == OF_KEY_RIGHT) {
+
+		ofSetWindowPosition(ofGetWindowPositionX() + 1, ofGetWindowPositionY());
+	}
+	if (key == OF_KEY_UP) {
+
+		ofSetWindowPosition(ofGetWindowPositionX(), ofGetWindowPositionY() - 1);
+	}
+	if (key == OF_KEY_DOWN) {
+
+		ofSetWindowPosition(ofGetWindowPositionX(), ofGetWindowPositionY() + 1);
+	}
 
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-
+	
 }
 
 //--------------------------------------------------------------
@@ -119,7 +140,6 @@ void ofApp::mouseMoved(int x, int y ){
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-
 }
 
 //--------------------------------------------------------------
@@ -145,7 +165,8 @@ void ofApp::mouseExited(int x, int y){
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
 	// Update the sender texture to receive the new dimensions
-	InitGLtexture(sendertexture, ofGetScreenWidth(), ofGetScreenHeight());
+	InitGLtexture(sendertexture, capture_src_width, capture_src_height);
+	
 }
 
 //--------------------------------------------------------------
@@ -177,7 +198,7 @@ bool ofApp::InitGLtexture(GLuint &texID, unsigned int width, unsigned int height
 
 void ofApp::capture_screen() {
 	
-	hSourceDC = GetDC(NULL);//GetDC( NULL ); for entire desktop
+	//hSourceDC = GetDC(NULL);//GetDC( NULL ); for entire desktop; line moved to setup function
 	hCaptureDC = CreateCompatibleDC(hSourceDC);
 	hCaptureBitmap = CreateCompatibleBitmap(hSourceDC, capture_dst_width, capture_dst_height);
 
@@ -204,12 +225,14 @@ void ofApp::capture_screen() {
 	capturedTexture.loadData(capturedPixelData, capture_dst_width, capture_dst_height, GL_BGR);
 	
 	// after the recording is done, release the desktop context you got..
-	ReleaseDC(NULL, hSourceDC);
+	
 	DeleteDC(hCaptureDC);
 	DeleteObject( hCaptureBitmap );
 }
 //--------------------------------------------------------------
 void ofApp::exit() {
+	//release our source DC that was initialised in the setup function
+	ReleaseDC(NULL, hSourceDC);
 
 
 	// Release the sender - this can be used for repeated 
